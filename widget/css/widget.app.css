@@ -1,0 +1,67 @@
+/* Plugin CSS */
+.contact-plugin.layout2 .contact-maps{
+	position:relative;
+}
+.contact-plugin.layout2 .plugin-slider .plugin-slide{
+	background:none;
+}
+.contact-plugin.layout2 .plugin-slider, 
+.contact-plugin.layout2 .plugin-slider .contact-slide{
+	max-height:100px;
+	background:none;
+}
+/* End Plugin CSS */
+
+/* Styles for home page carousel - to align and style the slider items*/
+.plugin-banner {
+    overflow: hidden;
+}
+
+
+/* To hide map report error link */
+
+.gmnoprint a{
+    display:none;
+}
+
+/* To overlay texts on background */
+.text-overlay{
+    position:relative
+}
+
+/*background image css class*/
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.overlay.background {
+    position: fixed;
+    height: 100%;
+}
+
+.overlay.background img {
+    height: 100%;
+}
+
+.owl-carousel .owl-controls .owl-dots {
+    text-align: center;
+}
+
+.mapSize{
+height: 192px;
+}
+
+.holder .info-bar{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    padding:10px 0;
+    opacity:0.85;
+    z-index:9;
+    -webkit-transform:translate3d(0,0,0);
+}
+

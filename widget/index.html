@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html ng-app="contactUsPluginWidget">
+<head>
+  <!--<base href="./"/>-->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../../../styles/siteIcons.css">
+  <link rel="stylesheet" href="../../../styles/helper.css">
+  <link rel="stylesheet" href="../../../scripts/owlCarousel/owlCarousel.css">
+  <link rel="stylesheet" href="css/widget.app.css">
+
+  <!--Angular, jQuery & Owl Carousel -->
+  <script src="../../../scripts/jquery/jquery-1.11.2.min.js"></script>
+  <script src="../../../scripts/smartcrop.js"></script>
+  <script src="../../../scripts/buildfire.js"></script>
+  <script type="text/javascript"
+          src="../../../scripts/owlCarousel/owlCarousel.js"></script>
+  <script
+      src="../../../scripts/buildfire/components/carousel/carousel.js"></script>
+  <script src="../../../scripts/angular/angular.min.js"></script>
+  <script src="../../../scripts/angular/angular-route.min.js"></script>
+  <script src="js/angular-touch.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyB0xpJ-AseoeusvT2PPWd5MOak58CR_B0c"></script>
+
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- App -->
+  <script src="app.js" type="application/javascript"></script>
+  <script src="enums.js" type="application/javascript"></script>
+  <script src="app.services.js" type="application/javascript"></script>
+  <script src="controllers/widget.home.controller.js" type="application/javascript"></script>
+
+</head>
+<body data-back-img="{{ backgroundImage}}">
+<div  ng-view>
+</div>
+</body>
+</html>

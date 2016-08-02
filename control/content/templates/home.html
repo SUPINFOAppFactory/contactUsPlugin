@@ -1,0 +1,113 @@
+<div id="carousel"></div>
+<hr class="none">
+<div class="item row clearfix">
+  <div class="labels col-md-3 pull-left">
+    <span>Body Content</span>
+  </div>
+</div>
+<hr class="none">
+<div class="item row clearfix">
+  <div class="main col-md-12 pull-left">
+    <textarea ui-tinymce="ContentHome.bodyWYSIWYGOptions" class="form-control"
+              rows="3" col="100"
+              placeholder="This is WYSIWYG"
+              data-ng-model="ContentHome.data.content.description"></textarea>
+  </div>
+</div>
+<hr class="none">
+<div class="item row clearfix">
+  <div class="labels col-md-3 pull-left">
+    <span>Address Title</span>
+  </div>
+  <div class="main col-md-9 pull-right">
+    <input type="text" class="form-control"
+           data-ng-model="ContentHome.data.content.addressTitle">
+  </div>
+</div>
+<hr class="none">
+<div class="item row clearfix">
+  <div class="labels col-md-3 pull-left">
+    <span>Address</span>
+  </div>
+  <div class="main col-md-9 pull-right">
+    <input id="googleMapAutocomplete" type="text" class="form-control"
+           placeholder="Enter street address or geo coordinates (Longitude,Latitude)"
+           google-location-search callback-fn="ContentHome.setLocation(data)"
+           ng-model="ContentHome.currentAddress"
+           ng-enter="ContentHome.setCoordinates()"
+           ng-change="ContentHome.clearData()"
+           ng-paste="ContentHome.locationAutocompletePaste();">
+    <br>
+
+    <div class="alert alert-danger alert-sm text-center"
+         ng-show="ContentHome.validCoordinatesFailure">Please enter valid
+      coordinates
+    </div>
+      <div class="alert alert-danger alert-sm text-center"
+           ng-show="ContentHome.validCopyAddressFailure">Please enter valid
+          address
+      </div>
+    <div class="display-map margin-top-ten">
+      <div class="checkbox checkbox-primary">
+        <input type="checkbox"
+               id="display_map" ng-model="ContentHome.data.content.showMap"
+               ng-checked="ContentHome.data.content.showMap">
+        <label for="display_map">Display Map</label>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="none">
+<div class="item row" ng-if="ContentHome.currentCoordinates">
+  <div class="col-md-9 pull-right">
+    <div google-map dragged-fn="ContentHome.setDraggedLocation(data)" coordinates="ContentHome.currentCoordinates"
+         class="mapSize"></div>
+  </div>
+</div>
+
+<hr class="none">
+<div class="item clearfix row">
+  <div class="labels col-md-3 padding-right-zero pull-left">
+    <span>Links</span>
+  </div>
+  <div class="main col-md-9 pull-right">
+    <div class="col-md-6 row">
+      <a class="btn btn-success stretch"
+         ng-click="ContentHome.openAddLinkPopup()">Add Contact Information</a>
+    </div>
+  </div>
+</div>
+<hr class="none">
+<div class="item clearfix row">
+  <div class="main col-md-12 pull-right">
+    <div class="draggable-list-view wide-list has-btn links-list"
+         ui-sortable="ContentHome.linksSortableOptions"
+         ng-model="ContentHome.data.content.links">
+      <div class=" ui-sortable d-item double-line square-icon clearfix"
+           ng-repeat="_link in ContentHome.data.content.links  ">
+        <span class="icon icon-menu cursor-grab pull-left"></span>
+
+        <div class="media-holder pull-left">
+          <img src="../../../../styles/media/holder-1x1.png">
+        </div>
+        <div class="copy pull-right">
+          <div class=" col-md-4 padding-zero pull-left">
+            <a class="text-primary"
+               ng-click="ContentHome.openEditLinkPopup(_link,$index)"><span
+                class="title ellipsis pull-left">{{_link.title}}</span></a>
+            <span class="title ellipsis pull-left">{{_link.url}}</span>
+          </div>
+          <span
+              class="btn-icon btn-delete-icon btn-danger transition-th  ird pull-right"
+              ng-click="ContentHome.removeLink($index)"></span>
+        </div>
+      </div>
+
+      <!-- Show If No Items -->
+      <div class="well text-center margin-bottom-zero border-none"
+           ng-hide="ContentHome.data.content.links.length">
+        <p class="margin-zero">No items found.</p>
+      </div>
+    </div>
+  </div>
+</div>
